@@ -8,7 +8,11 @@ choices = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
 
 def rock():
     tell_player = random.choice(choices)
+
     print(f"Ryan chooses {tell_player}")      
+
+    print(f"I choose {tell_player}")      
+
     if tell_player.lower() == 'rock':
         print("Stop hitting yourself")
     if tell_player.lower() == 'scissors':
@@ -23,7 +27,11 @@ def rock():
 
 def scissors():
     tell_player = random.choice(choices)
+
     print(f"Ryan chooses {tell_player}")
+
+    print(f"I choose {tell_player}")
+
     if tell_player.lower() == 'rock':
         print("Rock crushed you!!!")
     if tell_player.lower() == 'scissors':
@@ -38,7 +46,11 @@ def scissors():
 
 def paper():
     tell_player = random.choice(choices)
+
     print(f"Ryan chooses {tell_player}")
+
+    print(f"I choose {tell_player}")
+
     if tell_player.lower() == 'rock':
         print("You covered rock")
     if tell_player.lower() == 'scissors':
@@ -53,7 +65,11 @@ def paper():
 
 def lizard():
     tell_player = random.choice(choices)
+
     print(f"Ryan chooses {tell_player}")
+
+    print(f"I choose {tell_player}")
+
     if tell_player.lower() == 'rock':
         print("Rock smashed you!!")
     if tell_player.lower() == 'scissors':
@@ -68,7 +84,11 @@ def lizard():
 
 def spock():
     tell_player = random.choice(choices)
+
     print(f"Ryan chooses {tell_player}")
+
+    print(f"I choose {tell_player}")
+
     if tell_player.lower() == 'rock':
         print("You vaporized rock")
     if tell_player.lower() == 'scissors':
@@ -86,7 +106,11 @@ def spock():
 
 def ranked_rock():
     tell_player = random.choice(choices)
+
     print(f"Ryan chooses {tell_player}")      
+
+    print(f"I choose {tell_player}")      
+
     if tell_player.lower() == 'rock':
         print("Stop hitting yourself")
         score(scoreboard)
@@ -110,7 +134,11 @@ def ranked_rock():
 
 def ranked_scissors():
     tell_player = random.choice(choices)
+
     print(f"Ryan chooses {tell_player}")      
+
+    print(f"I choose {tell_player}")      
+
     if tell_player.lower() == 'rock':
         print("Rock crushed you!!!")
         scoreboard[pc_name] += 1
@@ -134,7 +162,11 @@ def ranked_scissors():
 
 def ranked_paper():
     tell_player = random.choice(choices)
+
     print(f"Ryan chooses {tell_player}")
+
+    print(f"I choose {tell_player}")
+
     if tell_player.lower() == 'rock':
         print("You covered rock")
         scoreboard[name] += 1
@@ -158,7 +190,11 @@ def ranked_paper():
 
 def ranked_lizard():
     tell_player = random.choice(choices)
+
     print(f"Ryan chooses {tell_player}")
+
+    print(f"I choose {tell_player}")
+
     if tell_player.lower() == 'rock':
         print("Rock smashed you!!")
         scoreboard[pc_name] += 1
@@ -182,7 +218,11 @@ def ranked_lizard():
 
 def ranked_spock():
     tell_player = random.choice(choices)
+
     print(f"Ryan chooses {tell_player}")
+
+    print(f"I choose {tell_player}")
+
     if tell_player.lower() == 'rock':
         print("You vaporized rock")
         scoreboard[name] += 1
@@ -203,9 +243,21 @@ def ranked_spock():
         print("Stop hitting yourself")
         score(scoreboard)        
 
+
 def score(board):
     for name, points_player in scoreboard.items():
         print("{} ({})".format(name, points_player))
+
+    
+
+scoreboard = {}
+
+# def score(board):
+#     for name, points_player in scoreboard.items():
+#         print("{} ({})".format(name, points_player))
+#         if scoreboard[name] == "3":
+#             break
+
 
 while True:
     welcome = input("Hi, welcome to our game.  Would you like to play? Y/N: ")
@@ -216,6 +268,7 @@ while True:
     elif welcome.lower() == 'y':
         player_input = input("There are 2 game types: Free(non-competitive) and Ranked(Best of 5)\nWhich mode would you like to play?: Free or Ranked: ")
         if player_input.lower() == 'free':
+
             name = input("What is your name? ").title()
             pc_name = "Ryan"
             print(f"Hello, {name}!!  Enjoy your time.\nWhen you are finished type Quit, but for now...")
@@ -235,6 +288,27 @@ while True:
                     spock()
                 elif ask_player.lower() == 'lizard':
                     print(f"You chose {ask_player}")
+
+            name = input("What is your name? ")
+            pc_name = "Ryan"
+            print(f"Hello, {name.title()}!!  Enjoy your time.\nWhen you are finished type Quit, but for now...")
+            while True:
+                ask_player = input("Would you like to choose Rock, Paper, Scissors, Lizard, or Spock?: ")
+                if ask_player.lower() == 'rock':
+                    print(f"You chose {ask_player.title()}")
+                    rock()
+                elif ask_player.lower() == 'scissors':
+                    print(f"You chose {ask_player.title()}")
+                    scissors()
+                elif ask_player.lower() == 'paper':
+                    print(f"You chose {ask_player.title()}")
+                    paper()
+                elif ask_player.lower() == 'spock':
+                    print(f"You chose {ask_player.title()}")
+                    spock()
+                elif ask_player.lower() == 'lizard':
+                    print(f"You chose {ask_player.title()}")
+
                     lizard()
                 elif ask_player.lower() == 'quit':
                     print("Thanks for playing.")
@@ -243,6 +317,7 @@ while True:
                     print("Sorry, that input is not valid.")
               
         elif player_input.lower() == 'ranked':
+
             name = input("What is your name? ").title()
             pc_name = "Ryan"
             scoreboard = {}
@@ -276,3 +351,51 @@ while True:
                     print(f"Sorry {name}, {pc_name} destroyed you.")
                     print(scoreboard)
                     break
+
+            name = input("What is your name? ")
+            pc_name = "Ryan"
+            scoreboard[name] = 0
+            scoreboard[pc_name] = 0
+            print(f"Hello, {name.title()}!!  You are playing {pc_name}.  Good luck, you're going to need it.\nWhen you are finished type Quit, but for now...")
+            while True:
+                def score(board):
+                    for name, points_player in scoreboard.items():
+                        print("{} ({})".format(name, points_player))
+                ask_player = input("Would you like to choose Rock, Paper, Scissors, Lizard, or Spock?: ")
+                if ask_player.lower() == 'rock':
+                    print(f"You chose {ask_player.title()}")
+                    ranked_rock()
+                elif ask_player.lower() == 'scissors':
+                    print(f"You chose {ask_player.title()}")
+                    ranked_scissors()
+                elif ask_player.lower() == 'paper':
+                    print(f"You chose {ask_player.title()}")
+                    ranked_paper()   
+                elif ask_player.lower() == 'spock':
+                    print(f"You chose {ask_player.title()}")
+                    ranked_spock() 
+                elif ask_player.lower() == 'lizard':
+                    print(f"You chose {ask_player.title()}")
+                    ranked_lizard()
+                elif scoreboard[name] == "3":
+                    print(f"Game Over: {scoreboard}")
+                    break
+                else:
+                    print("Sorry, that input is not valid.")
+                
+                    
+                    
+                
+
+        
+        
+
+
+        
+
+        
+            
+
+        
+    
+
